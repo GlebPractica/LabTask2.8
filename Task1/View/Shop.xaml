@@ -1,0 +1,48 @@
+﻿<Window x:Class="Task1.View.Shop"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task1.View"
+        mc:Ignorable="d"
+        Title="Shop" Height="450" Width="600" WindowStartupLocation="CenterScreen">
+    
+    
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+        
+        <ListBox ItemsSource="{Binding Shops}" SelectedItem="{Binding SelectedShop}" Grid.Column="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding NameProd}" />
+                        <TextBlock Text="{Binding CountProd}" />
+                        <TextBlock Text="{Binding PriceProd, StringFormat=C}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Column="1">
+            <TextBlock Text="Детали продукта" FontSize="16" FontWeight="Bold" Margin="10"/>
+            <TextBlock Text="Название продукта" />
+            <TextBlock Text="{Binding SelectedShop.NameProd}" Margin="2"/>
+            <TextBlock Text="Цена продукта" />
+            <TextBlock Text="{Binding SelectedShop.PriceProd, StringFormat=C}" Margin="2"/>
+            <Button Content="Добавить в корзину" Command="{Binding AddToCart}" Margin="5"/>
+
+            <TextBlock Text="Добавить новый продукт" FontSize="16" FontWeight="Bold" Margin="10,20,10,10"/>
+            <TextBlock Text="Название продукта" />
+            <TextBox Text="{Binding NewProductName}" Margin="2"/>
+            <TextBlock Text="Количество продукта" />
+            <TextBox Text="{Binding NewProductCount}" Margin="2"/>
+            <TextBlock Text="Цена продукта" />
+            <TextBox Text="{Binding NewProductPrice}" Margin="2"/>
+            <Button Content="Добавить продукт" Command="{Binding AddProduct}" Margin="5"/>
+            <Button Content="Удалить продукт" Command="{Binding DeleteProduct}" Margin="5" />
+        </StackPanel>
+    </Grid>
+</Window>

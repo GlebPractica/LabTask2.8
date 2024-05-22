@@ -1,0 +1,30 @@
+﻿<Window x:Class="Task1.View.MainMenu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task1.View"
+        mc:Ignorable="d"
+        Title="Задание" Height="250" Width="400" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="Button">
+            <Setter Property="FontSize" Value="16" />
+            <Setter Property="Margin" Value="0 5 0 5" />
+            <Setter Property="MinHeight" Value="70" />
+        </Style>
+    </Window.Resources>
+    
+    <Grid Margin="5">
+
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" MinWidth="350">
+            <Button Content="Магазин" 
+                    Command="{Binding GoToShop}" 
+                    x:Name="BttnOpenShop"/>
+            <Button Content="Корзина" 
+                    Command="{Binding GoToCart}" 
+                    x:Name="BttnOpenCart"/>
+        </StackPanel>
+        
+    </Grid>
+</Window>

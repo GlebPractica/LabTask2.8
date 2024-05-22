@@ -1,0 +1,20 @@
+﻿<Window x:Class="Task1.View.MyCart"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Task1.View"
+        mc:Ignorable="d"
+        Title="Корзина" Height="450" Width="600" WindowStartupLocation="CenterScreen">
+
+    <Grid>
+        <ListView ItemsSource="{Binding CartItems}" SelectedItem="{Binding C}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Название продукта" DisplayMemberBinding="{Binding Shop.NameProd}" Width="Auto"/>
+                    <GridViewColumn Header="Количество" DisplayMemberBinding="{Binding Count}" Width="Auto"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>
